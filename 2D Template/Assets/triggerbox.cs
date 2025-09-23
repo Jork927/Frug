@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class triggerbox : MonoBehaviour
 {
-    VariableDeclaration points;
     public static int player_points = 0;
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -11,6 +10,7 @@ public class triggerbox : MonoBehaviour
         Destroy(gameObject);
         player_points += 1;
         Debug.Log(player_points);
+        FindFirstObjectByType<score_updater>()?.AddPoints(1);
 
     }
 
